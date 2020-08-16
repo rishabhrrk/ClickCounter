@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="container-search">
+    <h3 class="header col s12 light">Your favourite media is just a SEARCH away</h3>
+    <div class="row">
+        <form action="/Home/Search">
+            <div class="col s12 m6 l4 offset-m3 offset-l4">
+                <input type="search" id="searchbox" name="searchString" placeholder="Lookup iTunes For ..." />
+                <button type="submit" class="waves-effect waves-light btn-large"><i class="material-icons left">search</i>Search</button>
+            </div>
+
+        </form>
+    </div>
+</div>

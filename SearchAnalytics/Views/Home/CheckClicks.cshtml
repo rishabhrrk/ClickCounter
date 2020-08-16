@@ -1,0 +1,42 @@
+﻿@model Dictionary<int,SearchAnalytics.Models.SearchItem>
+@{
+    ViewBag.Title = "Check Clicks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row top">
+    <form action="/Home/Search">
+        <div class="row">
+            <div class="col s3 m3 l3">
+                <input type="search" id="searchbox" name="searchString" placeholder="Lookup iTunes For ..." />
+                <button type="submit" class="waves-effect waves-small btn-small"><i class="material-icons center">search</i></button>
+            </div>
+
+        </div>
+    </form>
+</div>
+@if(Model.Count == 0)
+{
+    <h3>No Clicks Found</h3>
+}
+
+<div class="row">
+    @foreach (var station in Model)
+    {
+
+        <div class="col s12 m6 l3">
+            <div class="card hoverable">
+                <div class="card-image">
+                    <img src="@station.Value.ArtworkUrl100.Replace("100x100","314x290")" height="290" width="290">
+
+                </div>
+
+                <div class="card-content">
+                    <h4> @station.Value.TrackName</h4>
+                    <p>@station.Value.CollectionName</p>
+                    <p>Total Clicks - @station.Value.Clicks</p>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

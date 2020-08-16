@@ -1,0 +1,46 @@
+﻿@model SearchAnalytics.Models.JsonResults
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row top">
+    <form action="/Home/Search">
+        <div class="row">
+            <div class="col s3 m3 l3">
+                <input type="search" id="searchbox" name="searchString" placeholder="Lookup iTunes For ..." />
+                <button type="submit" class="waves-effect waves-small btn-small"><i class="material-icons center">search</i></button>
+            </div>
+            
+        </div>
+    </form>
+</div>
+@if(Model.ResultCount == 0)
+{
+    <h3>No Results Found. Try a New Search.</h3>
+}
+<div class="row">
+    @foreach (SearchAnalytics.Models.SearchItem station in Model.Results)
+    {
+
+        <div class="col s12 m6 l3">
+            <div class="card">
+                <div class="card-image">
+                    <img src="@station.ArtworkUrl100.Replace("100x100","314x290")" height="290" width="290">
+
+                </div>
+                
+                <div class="card-content">
+                    <h4> @station.TrackName</h4>
+                    <p>
+                        @station.CollectionName
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a href="@station.TrackUri" onclick="saveClick(this)" data-trackid="@station.Id">PLAY</a>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

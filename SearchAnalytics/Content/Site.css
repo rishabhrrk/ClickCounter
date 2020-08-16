@@ -1,0 +1,52 @@
+﻿body {
+	/*padding-top: 50px;
+	padding-bottom: 20px;*/
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+
+
+main {
+	flex: 1 0 auto;
+  }
+	  
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+	white-space: normal;
+}
+
+/* Custom CSS */
+
+.container-search{
+	padding-top: 20%;
+	text-align: center;
+}
+
+.card-content > p, .card-content > h4, .card-title {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.card-content{
+	min-height:165px;
+}
+	.card-content > h4{
+		line-height:normal;
+	}
+	/* Set width on the form input elements since they're 100% wide by default */
+	input,
+	select,
+	textarea {
+		max-width: 280px;
+	}
